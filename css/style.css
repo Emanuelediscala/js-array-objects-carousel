@@ -28,12 +28,12 @@
 
 .buttonPositionNext {
     position: absolute;
-    top: 0%;
+    top:-16%;
     left: 45%;
 }
 .buttonPositionBack {
     position: absolute;
-    bottom: 0%;
+    bottom: -17%;
     left: 45%;
 }
 
@@ -44,4 +44,20 @@ button {
     cursor: pointer;
     color: white;
 }
+.title { 
+    position: absolute;
+    bottom:30%;
+    right:30%;
+    color: white;
+    text-align: right;
+}
+.placecaption
+    {
+        position: absolute;
+        bottom:7%;
+        right:30%;
+        width: 40%;
+        color: white;
+        text-align: right;
+    }
 

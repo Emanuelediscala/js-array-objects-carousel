@@ -1,5 +1,12 @@
 let imgFolder = document.getElementById("slider")
+let btnext = document.getElementById("buttonext")
+let btnback = document.getElementById("buttoback")
+// definisco Array Immagini
 
+const arrayImg = []
+const arrayTitle = []
+const arrayCaption = []
+current = 0;
 // Definisco array immagini
 const images = [
     {
@@ -26,22 +33,72 @@ const images = [
 ];
 // Costruzioni Elementi HTML per ogni oggetto dell array
 
-images.forEach(element => {
+images.forEach((element,index,array) => {
     // definisco variabili per proprietà oggetti
     let pic = document.createElement("img")
     let title = document.createElement("h2")
     let caption = document.createElement("p")
+    let placeCaption = document.createElement("div")
     // inserisco valori alle variabili
     caption.innerText = element.text;
     title.innerText += element.title;
     pic.src += element.image;
+    placeCaption.innerText += element.text;
+    // aggiungo classi a gli elementi
+    title.classList.add("title");
+    placeCaption.classList.add("placecaption")
+    caption.classList.add("caption");
     pic.classList.add("slide");
     // posiziono  in html
     imgFolder.append(pic);
     imgFolder.append(title);
-    imgFolder.append(caption);
-
+    imgFolder.append(placeCaption);
+    //  Push in array vuoti
+    arrayImg.push(pic);
+    arrayTitle.push(title);
+    arrayCaption.push(placeCaption);
+    if(index > 0) {
+        pic.classList.add("hidden")
+        placeCaption.classList.add("hidden")
+        title.classList.add("hidden")
+    }
 });
 
-// definisco Array Immagini
+btnext.addEventListener("click", function() {
+
+    for (let c = 0; c < arrayImg.length; c++) {
+        
+        const slide = arrayImg[c];
+        if (c == current+1) {
+            slide.classList.remove("hidden");
+        
+        }
+        else {
+            slide.classList.add("hidden");
+        }
+}
+for (let c = 0; c < arrayTitle.length; c++) {
+        
+    const title = arrayTitle[c];
+    if (c == current+1) {
+        title.classList.remove("hidden");
+    }
+    else {
+        title.classList.add("hidden");
+    }
+}
+current++;
+if (currentslide == slideArray.length-1) {
+    
+    currentslide=-1;
+    
+    // slide.classList.remove("hidden");
+    console.log(currentslide)
+}
+})
+
+
+
+
+
 
