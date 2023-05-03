@@ -1,4 +1,4 @@
-let imgFolder = document.getElementById("container")
+let imgFolder = document.getElementById("slider")
 
 // Definisco array immagini
 const images = [
@@ -27,9 +27,21 @@ const images = [
 // Costruzioni Elementi HTML per ogni oggetto dell array
 
 images.forEach(element => {
+    // definisco variabili per proprietà oggetti
+    let pic = document.createElement("img")
+    let title = document.createElement("h2")
+    let caption = document.createElement("p")
+    // inserisco valori alle variabili
+    caption.innerText = element.text;
+    title.innerText += element.title;
+    pic.src += element.image;
+    pic.classList.add("slide");
+    // posiziono  in html
+    imgFolder.append(pic);
+    imgFolder.append(title);
+    imgFolder.append(caption);
+
 });
 
-definisco creazione immagine e la inserisco nello slider
-let img = document.createElement("img")
-img.src += element.image
-imgFolder.appendChild("")
+// definisco Array Immagini
+
