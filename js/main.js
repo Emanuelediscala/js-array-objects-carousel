@@ -2,13 +2,14 @@
 let imgFolder = document.getElementById("slider")
 let btnext = document.getElementById("buttonext")
 let btnback = document.getElementById("buttoback")
+let thumbHolder = document.getElementById("thumbHolder")
+current = 0;
 // definisco Array Immagini
 const arrayImg = []
 // definisco Array Title
 const arrayTitle = []
 // definisco Array Caption
 const arrayCaption = []
-current = 0;
 // Definisco array immagini
 const images = [
     {
@@ -99,10 +100,10 @@ btnext.addEventListener("click", function () {
         // slide.classList.remove("hidden");
     }
 })
-btnback.addEventListener("click", function() {
+btnback.addEventListener("click", function () {
     current--;
     if (current < 0) {
-        current = arrayImg.length-1;
+        current = arrayImg.length - 1;
     }
     for (let c = 0; c < arrayImg.length; c++) {
         const slide = arrayImg[c];
@@ -116,7 +117,7 @@ btnback.addEventListener("click", function() {
     for (let c = 0; c < arrayTitle.length; c++) {
         const Title = arrayTitle[c];
         if (c == current) {
-            Title.classList.remove("hidden");
+            Title.classListcurrentremove("hidden");
         }
         else {
             Title.classList.add("hidden");
@@ -134,15 +135,48 @@ btnback.addEventListener("click", function() {
 })
 
 // ciclo array per thumb
-for (const key in images) {
-    if (images.hasOwnProperty.call(images, key)) {
-        const element = images[key];
-            let thumb = document.createElement("img");
-            thumb.src = element.name;
+images.forEach((element, index) => {
+    let thumb = document.createElement("img");
+    thumb.src = element.image;
+    thumb.classList.add("thumb");
+    thumbHolder.append(thumb);
+    thumb.addEventListener("click", function (el) {
+        current = index
+        for (let i = 0; i < arrayImg.length; i++) {
+            const slide = arrayImg[i];
+            if (current == i) {
+                slide.classList.remove("hidden")
+            }
+            else {
+                slide.classList.add("hidden")
+            }
         }
-    }
+        for (let i = 0; i < arrayTitle.length; i++) {
+            const title = arrayTitle[i];
+            if (current == i) {
+                title.classList.remove("hidden")
+            }
+            else {
+                title.classList.add("hidden")
+            }
+        }
+        for (let i = 0; i < arrayCaption.length; i++) {
+            const caption = arrayCaption[i];
+            if (current == i) {
+                caption.classList.remove("hidden")
+            }
+            else {
+                caption.classList.add("hidden")
+            }
+        }
+    })
+})
 
-
+// let thumbClick = document.getElementsByClassName("thumb")
+// console.log(thumbClick);
+// thumbClick.addEventListener("click", function() {
+//     console.log(thumbClick);
+// })
 
 
 
