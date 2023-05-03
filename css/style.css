@@ -28,17 +28,17 @@
 
 .buttonPositionNext {
     position: absolute;
-    top:-16%;
+    top:0;
     left: 45%;
 }
 .buttonPositionBack {
     position: absolute;
-    bottom: -17%;
-    left: 45%;
+    bottom: 0%;
+    left: 46%;
 }
 
 button {
-    padding: 1rem ;
+    padding: 0.6rem ;
     border-radius: 0.5rem;
     background-color: rgba(0, 0, 0, 0.5);
     cursor: pointer;
@@ -47,17 +47,36 @@ button {
 .title { 
     position: absolute;
     bottom:30%;
-    right:30%;
-    color: white;
+    right:26%;
+    color:white;
     text-align: right;
 }
 .placecaption
     {
         position: absolute;
         bottom:7%;
-        right:30%;
+        right:26%;
         width: 40%;
         color: white;
+        font-weight: 600;
         text-align: right;
     }
 
+    .thumb {
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 5px;
+        width: 150px;
+    }
+    .thumb:hover {
+        box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+    }
+    #thumbHolder {
+        position: absolute;
+        top: 15%;
+        right: 23%;
+        width: 200px;
+    }
+    .thumb {
+        width: 200px;
+    }
