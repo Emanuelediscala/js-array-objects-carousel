@@ -172,11 +172,4 @@ images.forEach((element, index) => {
     })
 })
 
-// let thumbClick = document.getElementsByClassName("thumb")
-// console.log(thumbClick);
-// thumbClick.addEventListener("click", function() {
-//     console.log(thumbClick);
-// })
-
-
 
